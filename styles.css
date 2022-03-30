@@ -1,0 +1,31 @@
+.wrapper {
+  font-size: 2rem;;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.start, .restart {
+  background-color: coral;
+  font-size: 2rem;
+}
+
+.question {
+  display: inline-block;
+  width: 150px;
+}
+
+#answer {
+  font-size: 100%;
+}
+
+.result {
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hidden {
+  display: none;
+}

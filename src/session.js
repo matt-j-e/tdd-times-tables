@@ -1,25 +1,20 @@
-const Attempt = require("./attempt");
-const Problem = require("./problem");
+// const Attempt = require("./attempt");
+// const Problem = require("./problem");
 
 class Session {
 
-  problems;
+  currentProblem;
   duration;
   attempts;
 
   constructor(duration=30) {
-    this.problems = [];
     this.attempts = [];
-    this.duration = duration * 1000;
+    this.duration = duration;
   }
 
-  generateProblem() {
-    this.problems.push(new Problem());
-  }
-
-  displayProblem() {
-    const latestProblem = this.problems[this.problems.length - 1];
-    return latestProblem.toString();
+  displayNewProblem() {
+    this.currentProblem = new Problem();
+    return this.currentProblem.toString();
   }
 
   saveAttempt(factorA, factorB, attempt) {
@@ -32,7 +27,7 @@ class Session {
       if (a.isCorrect) tot++;
       return tot;
     }, 0);
-    let result = "Score so far:\n";
+    let result = "You scored:\n";
     result += correctAnswers + " correct out of " + questions + "\n";
     return result;
   }
