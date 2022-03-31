@@ -19,3 +19,5 @@ if (typeof module !== 'undefined' && module.exports) {
 } else {
   window.Port = Attempt;
 }
+
+// export default Attempt;

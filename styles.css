@@ -1,6 +1,6 @@
 .wrapper {
   font-size: 2rem;;
-  height: 400px;
+  height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,6 +26,27 @@
   margin-bottom: 2rem;
 }
 
+.results {
+  list-style-type: none;
+  font-size: 1.6rem;
+  padding: 0;
+}
+
+.results li {
+  padding: 0.3rem;
+  margin-bottom: 0.2rem;
+  text-align: center;
+}
+
 .hidden {
   display: none;
+}
+
+.correct {
+  background-color: lightgreen;
+}
+
+.incorrect {
+  background-color: red;
+  color: aqua;
 }

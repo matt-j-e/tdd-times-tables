@@ -13,35 +13,47 @@ class WebController {
     this.questionElement = document.querySelector(".question");
     this.answerElement = document.querySelector("#answer");
     this.startButton = document.querySelector(".start");
+    this.workspace = document.querySelector(".workspace");
+    this.resultElement = document.querySelector(".result");
+    this.resultsList = document.querySelector(".results");
+    this.restartButton = document.querySelector(".restart");
+    this.hideElementsAtStartup();
+    this.addListeners();
+  }
+
+  hideElementsAtStartup() {
+    this.workspace.classList.toggle("hidden");
+    this.resultElement.classList.toggle("hidden");
+    this.resultsList.classList.toggle("hidden");
+    this.restartButton.classList.toggle("hidden");
+  }
+
+  addListeners() {
     this.startButton.addEventListener("click", () => {
       this.play();
     });
-    this.workspace = document.querySelector(".workspace");
-    this.workspace.classList.toggle("hidden");
     this.workspace.addEventListener("submit", (e) => {
       this.saveAttempt(e);
     });
-    this.resultElement = document.querySelector(".result");
-    this.resultElement.classList.toggle("hidden");
-    this.restartButton = document.querySelector(".restart");
-    this.restartButton.classList.toggle("hidden");
     this.restartButton.addEventListener("click", () => {
       location.reload();
-    })
+    });
   }
 
   play() {
     this.workspace.classList.toggle("hidden");
     this.clearAnswerBox();
-    const now = Date.now();
-    this.end = now + 30000;
-    console.log("End: ", this.end);
+    this.setEndTime();
     this.startButton.classList.toggle("hidden");
     this.displayNewProblem();
   }
 
   clearAnswerBox() {
     this.answerElement.value = "";
+  }
+
+  setEndTime() {
+    this.end = Date.now() + this.session.duration * 1000;
   }
 
   displayNewProblem() {
@@ -69,6 +81,24 @@ class WebController {
     this.restartButton.classList.toggle("hidden");
     const result = this.session.progressSoFar();
     this.resultElement.innerHTML = result;
+    this.buildResultsList();
+    this.resultsList.classList.toggle("hidden");
+  }
+
+  buildResultsList() {
+    const results = this.session.attempts;
+    results.map(result => {
+      const li = document.createElement("li");
+      li.innerHTML = `${result.factorA} x ${result.factorB} = ${result.response}`;
+      // result.isCorrect ? li.classList.add("correct") : li.classList.add("incorrect");
+      if (result.isCorrect) {
+        li.classList.add("correct");
+      } else {
+        li.classList.add("incorrect");
+        li.innerHTML += ` (${result.factorA * result.factorB})`;
+      }
+      this.resultsList.append(li);
+    })
   }
 }
 

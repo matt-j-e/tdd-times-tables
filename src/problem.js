@@ -23,3 +23,5 @@ if (typeof module !== 'undefined' && module.exports) {
 } else {
   window.Port = Problem;
 }
+
+// export default Problem;
