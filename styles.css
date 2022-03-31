@@ -1,6 +1,6 @@
 .wrapper {
   font-size: 2rem;;
-  height: 800px;
+  /* height: 800px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,7 +28,8 @@
 
 .results {
   list-style-type: none;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  margin: 0;
   padding: 0;
 }
 
