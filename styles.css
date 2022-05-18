@@ -1,20 +1,27 @@
 .wrapper {
-  font-size: 2rem;;
-  /* height: 800px; */
+  font-size: 1.4rem;
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.start, .restart {
+.start,
+.restart {
   background-color: coral;
-  font-size: 2rem;
+  font-size: 1.4rem;
+}
+
+.workspace {
+  display: flex;
+  flex-direction: row;
 }
 
 .question {
   display: inline-block;
-  width: 150px;
+  width: 50%;
+  padding-right: 1rem;
 }
 
 #answer {
@@ -23,12 +30,12 @@
 
 .result {
   padding: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 .results {
   list-style-type: none;
-  font-size: 1.4rem;
+  /* font-size: 1.4rem; */
   margin: 0;
   padding: 0;
 }
