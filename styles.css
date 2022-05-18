@@ -20,12 +20,12 @@
 
 .question {
   display: inline-block;
-  width: 50%;
+  flex-basis: 70%;
   padding-right: 1rem;
 }
 
 #answer {
-  font-size: 100%;
+  flex-basis: 30%;
 }
 
 .result {
