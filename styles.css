@@ -16,10 +16,11 @@
 .workspace {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .question {
-  display: inline-block;
+  /* display: inline-block; */
   flex-basis: 70%;
   padding-right: 1rem;
 }
